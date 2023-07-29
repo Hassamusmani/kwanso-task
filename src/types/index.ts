@@ -8,4 +8,5 @@ export interface Task {
     id: number,
     label: string,
     description: string,
+    isCompleted: boolean;
 };

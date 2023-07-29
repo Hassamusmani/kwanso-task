@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { TextField, Button, Container, Box, Typography } from '@mui/material';
 import AppContext from '../context';
 import { useNavigate } from 'react-router-dom';
+import TaskSwitch from '../components/common/TaskSwitch';
 
 const CreateTask: React.FC = () => {
     const navigate = useNavigate();
@@ -14,6 +15,7 @@ const CreateTask: React.FC = () => {
 
         const newTask = {
             id: Date.now(),
+            isCompleted: false,
             label: taskName,
             description: taskDescription,
         };
@@ -61,9 +63,12 @@ const CreateTask: React.FC = () => {
                     value={taskDescription}
                     onChange={(e) => setTaskDescription(e.target.value)}
                 />
-                <Button variant="contained" color="primary" type="submit" sx={{ margin: 1 }}>
-                    Add Task
-                </Button>
+                <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                    <TaskSwitch isDisabled />
+                    <Button variant="contained" color="primary" type="submit" sx={{ margin: 1 }}>
+                        Add Task
+                    </Button>
+                </Box>
             </Box>
         </Container>
     );

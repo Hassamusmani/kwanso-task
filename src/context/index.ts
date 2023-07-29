@@ -10,6 +10,7 @@ export type context = {
   addTask: (newTask: Task) => void;
   deleteTasks: (ids: number[]) => void;
   setToast: (msg: string) => void;
+  handleTaskStatus: (id: number) => void;
 };
 
 export const initContext: context = {
@@ -17,7 +18,8 @@ export const initContext: context = {
   toastMessage: '',
   addTask: () => null,
   deleteTasks: () => null,
-  setToast: () => null
+  setToast: () => null,
+  handleTaskStatus: () => null
 };
 
 const AppContext = createContext(initContext);

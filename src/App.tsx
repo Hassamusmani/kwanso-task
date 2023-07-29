@@ -25,11 +25,11 @@ function App() {
         <Route path="/bulk-delete" element={<BulkDelete />} />
       </Routes>
       <Snackbar open={!!toastMessage.length} autoHideDuration={4000} onClose={handleSnackbarClose} anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
-        <Alert onClose={handleSnackbarClose} severity="warning" variant="filled">
+        <Alert onClose={handleSnackbarClose} severity={toastMessage.includes("Please add one") ? "warning" : "success"} variant="filled">
           {toastMessage}
         </Alert>
       </Snackbar>
-    </div>
+    </div >
   );
 }
 

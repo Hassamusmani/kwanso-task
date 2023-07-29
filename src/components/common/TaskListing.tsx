@@ -24,6 +24,7 @@ const TaskListing: React.FC<Props> = ({ heading, isDeleting = false }) => {
 
     const handleDelete = () => {
         deleteTasks(checkedIds);
+        setCheckedIds([]);
     };
 
     return (
@@ -46,6 +47,7 @@ const TaskListing: React.FC<Props> = ({ heading, isDeleting = false }) => {
                     <Grid item key={id} xs={12} sm={12} md={12}>
                         <TaskCard
                             {...rest}
+                            taskId={id}
                             isDeleting={isDeleting}
                             isChecked={checkedIds.includes(id)}
                             onToggleChecked={() => handleToggleChecked(id)}
